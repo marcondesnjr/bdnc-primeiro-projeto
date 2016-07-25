@@ -26,7 +26,7 @@ public class CadastroUsuarioMB {
     private String nome;
     private String email;
     private String senha;
-    private char sexo;
+    private String sexo;
     
     @EJB
     private UsuarioCadastro usuarioCadastro;
@@ -71,11 +71,11 @@ public class CadastroUsuarioMB {
         this.senha = senha;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 

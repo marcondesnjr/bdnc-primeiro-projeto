@@ -26,6 +26,11 @@ public class UsuarioRepositorio {
         queryRunner = new QueryRunner(dataSource);
     }
     
+    public void persistir(Usuario usr) throws SQLException{
+        String sql = "INSERT INTO usuario(email, nome, senha, sexo) VALUES (?, ?, ?, ?);";
+        queryRunner.update(sql,usr.getEmail(), usr.getNome(), usr.getSenha(), usr.getSexo());
+    }
+    
     public Usuario encontrarPeloEmail(String email) throws SQLException{
         String sql = "SELECT * FROM USUARIO WHERE email = ?";
         return queryRunner.query(sql, new BeanHandler<>(Usuario.class),email);

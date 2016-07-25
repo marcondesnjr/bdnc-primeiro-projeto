@@ -19,9 +19,9 @@ public class UsuarioCadastro {
     @Inject
     private UsuarioRepositorio usuarioRepositorio;
     
-    public void persistir(String nome, String email, String senha, char sexo){
-//        Usuario usr = new Usuario(email, senha, nome, sexo);
-//        em.persist(usr);
+    public void persistir(String nome, String email, String senha, String sexo) throws SQLException{
+        Usuario usr = new Usuario(email, senha, nome, sexo);
+        usuarioRepositorio.persistir(usr);
     }
     
     public Usuario encontrar(String email) throws SQLException{
